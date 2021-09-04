@@ -21,6 +21,24 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/registerClient', function () {
-    return view('registerClient');
-})->name('registerClient');
+Route::middleware(['auth:sanctum', 'verified'])->get('/registrarSorteio', function () {
+    return view('registrarSorteio');
+})->name('registrarSorteio');
+
+//passar o caminho completo do controlador no laravel 8x
+Route::middleware(['auth:sanctum', 'verified'])->get(
+    '/contato',
+    'App\Http\Controllers\ContatoController@listContact')
+    ->name('contato');
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/saveContact',
+    'App\Http\Controllers\ContatoController@saveContact')->name('saveContact');
+
+
+
+
+
+
+
+
+
